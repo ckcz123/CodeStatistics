@@ -6,8 +6,9 @@ public class CodeStatistics {
 	private static HashMap<String, Integer> fileMap;
 	private static HashMap<String, Integer> lineMap;
 	private static HashMap<String, Integer> nonEmptyLineMap;
+	// Add your own extension if you want
 	private final static String[] allTypes = {
-		".cc", ".c", ".cpp", ".h", ".java", ".xml", ".html", ".html", ".php", ".py", ".asp",
+		".cc", ".c", ".cpp", ".h", ".java", ".xml", ".html", ".htm", ".php", ".py", ".asp",
 		".js", ".css", ".jsp", ".pl", ".cs", ".sql"
 	};
 
