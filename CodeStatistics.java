@@ -13,10 +13,8 @@ public class CodeStatistics {
 	};
 
 	public static void main(String[] args) {
-		String path="";
-		if (args.length==0) {
-			path="E:\\java";
-		} else {
+		String path=".";
+		if (args.length>0) {
 			path=args[0];
 		}
 		File file=new File(path);
