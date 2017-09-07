@@ -3,18 +3,22 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+
+    public static final String DEFAULT_PATH = ".";
+
     private static HashMap<String, Integer> fileMap;
     private static HashMap<String, Integer> lineMap;
     private static HashMap<String, Integer> nonEmptyLineMap;
     private static HashMap<String, Long> sizeMap;
-    // Add your own extension if you want
-    private final static String[] allTypes = {
-            ".cc", ".c", ".cpp", ".h", ".java", ".xml", ".html", ".htm", ".php", ".py", ".asp",
-            ".js", ".css", ".jsp", ".pl", ".cs", ".sql"
+
+    // Add your own extensions if you want
+    private final static String[] extensions = {
+            ".cc", ".c", ".cpp", ".h", ".java", ".cs", ".php", ".py", ".xml", ".html", ".htm",
+            ".asp", ".js", ".css", ".jsp", ".pl", ".sql", ".md"
     };
 
     public static void main(String[] args) {
-        String path="E:\\cpp\\mota3";
+        String path=DEFAULT_PATH;
         if (args.length>0) {
             path=args[0];
         }
@@ -32,14 +36,13 @@ public class Main {
         nonEmptyLineMap=new HashMap<>();
         sizeMap=new HashMap<>();
         analyze(file);
-        ArrayList<String> tps=new ArrayList<>();
-        System.out.println("Code statistics at "+path+":");
+        System.out.println("Code statistics at "+file.getAbsolutePath()+":");
         System.out.println();
         System.out.println(String.format("%-8s%-8s%-8s%-10s%-10s", "Type","Files","Lines","NELines", "Size"));
         System.out.println("-----------------------------------------------");
         int a=0,b=0,c=0;
         long d=0;
-        for (String type: allTypes) {
+        for (String type: extensions) {
             String t=type.substring(1);
             if (!fileMap.containsKey(t)) continue;
             System.out.println(String.format("%-8s%-8d%-8d%-10d%-10s", t, fileMap.getOrDefault(t, 0),
@@ -81,7 +84,7 @@ public class Main {
     }
 
     private static String check(File file) {
-        for (String type: allTypes)  {
+        for (String type: extensions)  {
             if (file.getPath().endsWith(type))
                 return type.substring(1);
         }
