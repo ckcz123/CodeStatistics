@@ -38,14 +38,14 @@ public class Main {
         analyze(file);
         System.out.println("Code statistics at "+file.getAbsolutePath()+":");
         System.out.println();
-        System.out.println(String.format("%-8s%-8s%-8s%-10s%-10s", "Type","Files","Lines","NELines", "Size"));
+        System.out.println(String.format("%-8s%-8s%-10s%-10s%-10s", "Type","Files","Lines","NELines", "Size"));
         System.out.println("-----------------------------------------------");
         int a=0,b=0,c=0;
         long d=0;
         for (String type: extensions) {
             String t=type.substring(1);
             if (!fileMap.containsKey(t)) continue;
-            System.out.println(String.format("%-8s%-8d%-8d%-10d%-10s", t, fileMap.getOrDefault(t, 0),
+            System.out.println(String.format("%-8s%-8d%-10d%-10d%-10s", t, fileMap.getOrDefault(t, 0),
                     lineMap.getOrDefault(t, 0), nonEmptyLineMap.getOrDefault(t, 0),
                     formatFileSize(sizeMap.getOrDefault(t, 0L))));
             a+=fileMap.getOrDefault(t, 0);
@@ -54,7 +54,7 @@ public class Main {
             d+=sizeMap.getOrDefault(t, 0L);
         }
         System.out.println("-----------------------------------------------");
-        System.out.println(String.format("%-8s%-8d%-8d%-10d%-10s","Total",a,b,c,formatFileSize(d)));
+        System.out.println(String.format("%-8s%-8d%-10d%-10d%-10s","Total",a,b,c,formatFileSize(d)));
     }
 
     private static void analyze(File file) {
