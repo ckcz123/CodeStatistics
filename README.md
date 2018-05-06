@@ -7,7 +7,7 @@ Code statistics, including file numbers, line numbers, non-empty line numbers, a
     ## Sample Output
     Code statistics at E:\workspace:
 
-    Type    Files   Lines     NELines   Size      
+    Type    Files   Lines     Slocs     Size      
     -----------------------------------------------
     c       3       1916      1380      48.92 KB  
     cpp     17      2445      2104      61.42 KB  
